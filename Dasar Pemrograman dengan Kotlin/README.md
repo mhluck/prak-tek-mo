@@ -183,3 +183,90 @@ How's the weather today?
 ---
 
 ### 2. Membuat dan menggunakan variabel di Kotlin
+
+- **Deklarasi variabel**
+
+```bash
+// count adalah nama variabel
+// Int adalah jenis data dari variabel tersebut
+// angka 2 adalah nilai awal dari variabel tersebut.
+fun main() {
+    val count: Int = 2
+    println(count)
+}
+```
+```teks
+2
+```
+
+- **Menggunakan variabel**
+
+```bash
+// println(count) mencetak variabel count ke output:
+fun main() {
+    val count: Int = 2
+    println(count)
+}
+```
+```teks
+2
+```
+
+- **Menggunakan template string**
+
+```bash
+// disini $count yang berisi 2 diganti menjadi string sehingga ketika dijalankan akan mencetak isi vvariabel
+fun main() {
+    val count: Int = 2
+    println("You have $count unread messages.")
+}
+```
+```teks
+You have 2 unread messages.
+```
+
+- **Mengubah nilai awal variabel**
+
+```bash
+// baris println() tetap berjalan dengan ketika saya rubah nilai awal nya 
+fun main() {
+    val count: Int = 10
+    println("You have $count unread messages.")
+}
+```
+```teks
+You have 10 unread messages.
+```
+
+- **Menncoba operasi matematika dasar dengan bilangan bulat**
+
+```bash
+// ${unreadCount + readCount} menjumlahkan isi variabelnya kemudian dicetak dalam bentuk string
+fun main() {
+    val unreadCount = 7
+    val readCount = 60
+    println("You have ${unreadCount + readCount} total messages in your inbox.")
+}
+```
+```teks
+You have 67 total messages in your inbox.
+```
+
+- **Mencoba dengan variabel yang berbeda**
+
+```bash
+// 
+fun main() {
+    val numberOfPhotos = 85
+    val photosEdited = 70
+    println("$numberOfPhotos photos")
+    println("$photosEdited photos edited")
+    println("${numberOfPhotos - photosEdited} photos left")
+}
+```
+```teks
+85 photos
+70 photos edited
+15 photos left
+```
+
