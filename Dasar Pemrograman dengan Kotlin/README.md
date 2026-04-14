@@ -355,8 +355,7 @@ fun main() {
     val trip3: Double = 1.72
     val totalTripLength: Double = trip1 + trip2 + trip3 // disini variabel totalTripLength nilainya dirubah dengan menjumlah semua trip 
     println("$totalTripLength miles left to destination")
-}
-*/
+}*/
 
 // menghapus jenis data Double yang tidak perlu, dan kode menjadi lebih sederhana
 fun main() {
@@ -369,4 +368,573 @@ fun main() {
 ```
 ```teks
 9.02 miles left to destination
+```
+
+- String
+
+```bash
+/*
+fun main() {
+    val nextMeeting = "Next meeting:" // variabel nextMeeting dan date berisi string
+    val date = "January 1"
+    val reminder = nextMeeting + date // kedua variabel tersebut digabungkan disini 
+    println(reminder) // disini dicetak dengan output "Next meeting:January 1"
+}
+
+fun main() {
+    val nextMeeting = "Next meeting: " // disini saya tambah spasi sebelum tanda kutip penutup
+    val date = "January 1"
+    val reminder = nextMeeting + date
+    println(reminder) // outputnya "Next meeting: January 1"
+}
+
+fun main() {
+    val nextMeeting = "Next meeting: "
+    val date = "January 1"
+    val reminder = nextMeeting + date + " at work" // at work menggunakan tanda kutip karena bukan variabel
+    println(reminder)
+}*/
+
+fun main() {
+    val nextMeeting = "Next meeting: "
+    val date = "January 1"
+    val reminder = nextMeeting + date + " at work \"FO UTDI\""
+    // ketika perlu tanda kutip di dalam string maka harus ditambah garis miring terbalik sebelum tanda petik ganda
+    println(reminder)
+}
+```
+```teks
+Next meeting: January 1 at work "FO UTDI"
+```
+
+- Boolean
+
+```bash
+/*
+fun main() {
+    val notificationsEnabled: Boolean = true // notificationsEnabled adalah variabel boolean dengan inisialisasi true
+    println(notificationsEnabled)
+}
+
+fun main() {
+    val notificationsEnabled: Boolean = false // disini nilainya diganti dengan false
+    println(notificationsEnabled)
+}*/
+
+fun main() {
+    val notificationsEnabled: Boolean = false
+    println("Are notifications enabled? " + notificationsEnabled)
+    // disini eksekusi variabelnya bisa disambung dengan string
+}
+```
+```teks
+Are notifications enabled? false
+```
+
+- **Memberi komentar di kode**
+
+```bash
+/*
+ * ini adalah contoh komentar multi-baris
+ * yang mana harus ditambah tanda bintang di awal setiap baris baru dikomentar
+ * dan diakhiri simbol tanda bintang dan garis miring
+ */
+fun main() {
+    // kalau ini contoh komentar ditengah baris kode
+    var count = 10
+    println("You have $count unread messages.")
+
+    // nah komentar komentar ini tidak ikut dieksekusi ketika kode dijalankan
+    count--
+    println("You have $count unread messages.")
+}
+```
+
+- **Ringkasan**
+    - Variabel adalah penampung untuk satu bagian data.
+    - Anda harus mendeklarasikan variabel terlebih dahulu sebelum menggunakannya.
+    - Gunakan kata kunci val untuk menentukan variabel yang bersifat hanya baca jika tempat nilai tidak dapat berubah setelah ditetapkan.
+    - Gunakan kata kunci var untuk menentukan variabel yang dapat diubah atau diubah.
+    - Di Kotlin, sebaiknya gunakan val daripada var jika memungkinkan.
+    - Untuk mendeklarasikan variabel, mulai dengan kata kunci val atau var. Kemudian, tentukan nama variabel, jenis data, dan nilai awal. Misalnya: val count: Int = 2.
+    - Dengan inferensi jenis, hilangkan jenis data dalam deklarasi variabel jika nilai awal diberikan.
+    - Beberapa jenis data Kotlin dasar yang umum mencakup: Int, String, Boolean, Float, dan Double.
+    - Gunakan operator penetapan (=) untuk menetapkan nilai ke variabel selama deklarasi variabel atau memperbarui variabel.
+    - Anda hanya dapat memperbarui variabel yang telah dideklarasikan sebagai variabel yang dapat diubah (dengan var).
+    - Gunakan operator penambahan (++) atau operator pengurangan (--) untuk menambah atau mengurangi nilai variabel bilangan bulat masing-masing sebesar 1.
+    - Gunakan simbol + untuk menyambungkan string menjadi satu. Anda juga dapat menyambungkan variabel dari jenis data lain seperti Int dan Boolean ke Strings.
+
+---
+
+### 3. Membuat dan menggunakan fungsi di Kotlin
+
+- **Menentukan dan Memanggil fungsi**
+
+```bash
+fun main() { // fungsi utama, pertama kali dijalankan
+    birthdayGreeting() // memanggil fungsi birthdayGreeting untuk dijalankan
+}
+
+fun birthdayGreeting() { // fungsi baru untuk menampilkan ucapan
+    println("Happy Birthday, Rover!")
+    println("You are now 5 years old!")
+}
+```
+```teks
+Happy Birthday, Rover!
+You are now 5 years old!
+```
+
+- **Menambahkan parameter ke fungsi birthdayGreeting()**
+
+```bash
+fun birthdayGreeting(name: String): String { // menambah parameter name dari jenis String
+    val nameGreeting = "Happy Birthday, $name!" // rover diganti dengan parameter $name
+    val ageGreeting = "You are now 5 years old!"
+    return "$nameGreeting\n$ageGreeting"
+}
+
+fun main() {
+    println(birthdayGreeting("Rover")) // disini lah nilai parameter $name diisi
+    println(birthdayGreeting("Gwen")) // birthdayGreeting() bisa dipanggil lagi dengan nama/argumen yang berbeda
+}
+```
+```teks
+Happy Birthday, Rover!
+You are now 5 years old!
+Happy Birthday, Gwen!
+You are now 5 years old!
+```
+
+- **Fungsi dengan beberapa parameter**
+
+```bash
+fun birthdayGreeting(name: String, age: Int): String {
+    // menambah parameter age dengan jenis Int dan harus dipisahkan menggunakan koma dengan parameter sebelumnya
+    val nameGreeting = "Happy Birthday, $name!"
+    val ageGreeting = "You are now $age years old!" // parameter age digunakan disini
+    return "$nameGreeting\n$ageGreeting"
+}
+
+fun main() {
+    // memanggil fungsi dengan mengirimkan nama dan umur yang berbeda
+    println(birthdayGreeting("Rover", 5))
+    println(birthdayGreeting("Gwen", 2))
+}
+```
+```teks
+Happy Birthday, Rover!
+You are now 5 years old!
+Happy Birthday, Gwen!
+You are now 2 years old!
+```
+
+- **Argumen yang dinamai**
+
+```bash
+fun birthdayGreeting(name: String, age: Int): String {
+    val nameGreeting = "Happy Birthday, $name!"
+    val ageGreeting = "You are now $age years old!"
+    return "$nameGreeting\n$ageGreeting"
+}
+
+fun main() {
+    // menggunakan argumen yang dinamai
+    println(birthdayGreeting(name = "Rover", age = 5))
+    // argumen yang dinamai ini bisa dibalik karena sudah menyebut nama parameternya
+    println(birthdayGreeting(age = 2, name = "Gwen"))
+}
+```
+```teks
+Happy Birthday, Rover!
+You are now 5 years old!
+Happy Birthday, Gwen!
+You are now 2 years old!
+```
+
+- **Argumen default**
+
+```bash
+// nilai default paramater name sekarang adalah Rover
+fun birthdayGreeting(name: String = "Rover", age: Int): String {
+    return "Happy Birthday, $name! You are now $age years old!"
+}
+
+/*fun main() {
+    // disini Rover akan dicetak (default) karena saya tidak menentukan namanya
+    println(birthdayGreeting(age = 5))
+    // dan untuk Gwen akan dicetak karena masih menggunakan nilai Gwen
+    println(birthdayGreeting("Gwen", 2))
+}*/
+
+fun main() {
+    // sekarang kedua panggilan untuk birthdayGreeting() mencetak "Rover"
+    // karena tidak ada argumen nama yang diteruskan
+    println(birthdayGreeting(age = 5))
+    println(birthdayGreeting(age = 2))
+}
+```
+```teks
+Happy Birthday, Rover! You are now 5 years old!
+Happy Birthday, Rover! You are now 2 years old!
+```
+
+- **Ringkasan**
+    - Fungsi ditetapkan dengan kata kunci fun dan berisi bagian kode yang dapat digunakan kembali.
+    - Fungsi membantu membuat program yang lebih besar menjadi lebih mudah dikelola dan mencegah pengulangan kode yang tidak perlu.
+    - Fungsi dapat menampilkan nilai yang dapat Anda simpan dalam variabel untuk digunakan di lain waktu.
+    - Fungsi dapat menggunakan parameter, yaitu variabel yang tersedia di dalam isi fungsi.
+    - Argumen adalah nilai yang Anda teruskan saat memanggil fungsi.
+    - Anda dapat memberi nama argumen saat memanggil fungsi. Saat menggunakan argumen yang dinamai, Anda dapat menyusun ulang argumen tanpa memengaruhi output.
+    - Anda dapat menentukan argumen default yang memungkinkan Anda menghilangkan argumen saat memanggil fungsi.
+
+---
+
+### 4. Soal Latihan: Dasar-Dasar Kotlin
+
+- **Mencetak pesan**
+
+```bash
+fun main() {
+    println("Use the val keyword when the value doesn't change.")
+    println("Use the var keyword when the value can change.")
+    println("When you define a function, you define the parameters that can be passed to it.")
+    println("When you call a function, you pass arguments for the parameters.")
+}
+```
+```teks
+Use the val keyword when the value doesn't change.
+Use the var keyword when the value can change.
+When you define a function, you define the parameters that can be passed to it.
+When you call a function, you pass arguments for the parameters.
+```
+
+- **Memperbaiki error kompilasi**
+
+```bash
+/*fun main() { 
+    println("New chat message from a friend'}
+    // Syntax error: Expecting '"'.
+    // Syntax error: Expecting ')'.
+}*/
+
+// kode sebelumnya mengalami error karena penutup pesannya menggunakan tanda kutip biasa bukan ganda
+// lalu penutup println seharusnya kurung kurawal bukan kurung biasa
+fun main() { 
+    println("New chat message from a friend")
+}
+```
+```teks
+New chat message from a friend
+```
+
+- **Template string**
+
+```bash
+/*fun main() {
+    val discountPercentage: Int = 0 // 'val' cannot be reassigned.
+    val offer: String = "" // 'val' cannot be reassigned.   
+    val item = "Google Chromecast"
+    discountPercentage = 20
+    offer = "Sale - Up to $discountPercentage% discount on $item! Hurry up!"
+    
+    println(offer)
+}*/
+
+fun main() {
+    var discountPercentage: Int = 0
+    var offer: String = ""
+    // karena variabel discountPercentage dan offer nilainya akan diperbarui nantinya
+    // maka tidak bisa menggunakan val, harus menggunakan var
+    val item = "Google Chromecast"
+    discountPercentage = 20
+    offer = "Sale - Up to $discountPercentage% discount on $item! Hurry up!"
+    
+    println(offer)
+}
+```
+```teks
+Sale - Up to 20% discount on Google Chromecast! Hurry up!
+```
+
+- **Penyambungan string**
+
+```bash
+/*fun main() {
+    val numberOfAdults = "20"
+    val numberOfKids = "30"
+    val total = numberOfAdults + numberOfKids
+    println("The total party size is: $total")
+    // kode akan mencetak parameter $total berupa 2030, kenapa bukan 50
+    // karena inisialisasi nilainya menggunakan cara inisialisasi string yang menggunakan tanda kutip ganda
+}*/
+
+fun main() {
+    // disini kedua variabel yang disambung sudah saya rubah cara inisialisasinya
+    // sesuai dengan cara inisialisasi Int tanpa menggunakan tanda kutip ganda
+    val numberOfAdults = 20
+    val numberOfKids = 30
+    val total = numberOfAdults + numberOfKids
+    println("The total party size is: $total")
+}
+```
+```teks
+The total party size is: 50
+```
+
+- **Pemformatan pesan**
+
+```bash
+/*fun main() {
+    val baseSalary = 5000
+    val bonusAmount = 1000
+    val totalSalary = "$baseSalary + $bonusAmount"
+    // jika nilai totalSalary diambil dari 2 variabel sebelumnya
+    // maka cukup panggil nama variabelnya saja dengan menjumlahkannya
+    println("Congratulations for your bonus! You will receive a total of $totalSalary (additional bonus).")
+}*/
+
+fun main() {
+    val baseSalary = 5000
+    val bonusAmount = 1000
+    val totalSalary = baseSalary + bonusAmount
+    // jika memanggil 2 variabelnya menggunakan tanda kutip ganda dan simbol dolar
+    // maka akan dianggap sebagai string yang dijumlahkan, bukan Int
+    println("Congratulations for your bonus! You will receive a total of $totalSalary (additional bonus).")
+}
+```
+```teks
+Congratulations for your bonus! You will receive a total of 6000 (additional bonus).
+```
+
+- **Mengimplementasikan operasi matematika dasar**
+
+- langkah 1
+
+```bash
+/*fun main() {
+    val firstNumber = 10
+    val secondNumber = 5
+    
+    println("$firstNumber + $secondNumber = $result")
+    // Unresolved reference 'result'.
+}*/
+
+fun main() {
+    val firstNumber = 10
+    val secondNumber = 5
+    
+    // kode sebelumnya bermasalah karena ketika memanggil variabel result
+    // result belum dideklarasikan, makanya tidak ditemukan referensinya
+    val result = firstNumber + secondNumber
+    println("$firstNumber + $secondNumber = $result")
+}
+```
+```teks
+10 + 5 = 15
+```
+
+- langkah 2
+
+```bash
+fun main() {
+    val firstNumber = 10
+    val secondNumber = 5
+    val thirdNumber = 8
+    
+    // memanggil fungsi add untuk menjumlahkan dua angka
+    val result = add(firstNumber, secondNumber)
+    val anotherResult = add(firstNumber, thirdNumber)
+
+    println("$firstNumber + $secondNumber = $result")
+    println("$firstNumber + $thirdNumber = $anotherResult")
+}
+
+// fungsi ini untuk menjumlahkan 2 angka
+fun add(firstNumber: Int, secondNumber: Int): Int {
+    return firstNumber + secondNumber
+}
+```
+```teks
+10 + 5 = 15
+10 + 8 = 18
+```
+
+- langkah 3
+
+```bash
+fun main() {
+    val firstNumber = 10
+    val secondNumber = 5
+    val thirdNumber = 8
+    
+    val result = add(firstNumber, secondNumber)
+    val anotherResult = subtrack(firstNumber, thirdNumber)
+
+    println("$firstNumber + $secondNumber = $result")
+    println("$firstNumber - $thirdNumber = $anotherResult")
+}
+
+fun add(firstNumber: Int, secondNumber: Int): Int {
+    return firstNumber + secondNumber
+}
+
+// fungsi ini untuk mengurangi 2 angka
+fun subtrack(firstNumber: Int, secondNumber: Int): Int {
+    return firstNumber - secondNumber
+}
+```
+```teks
+10 + 5 = 15
+10 - 8 = 2
+```
+
+- **Parameter default**
+
+```bash
+fun main() {
+    val firstUserEmailId = "user_one@gmail.com"
+
+    // memanggil fungsi hanya dengan emailId
+    // operatingSystem tidak diisi, jadi menggunakan nilai default "Unknown OS"
+    println(displayAlertMessage(emailId = firstUserEmailId))
+    println()
+
+    val secondUserOperatingSystem = "Windows"
+    val secondUserEmailId = "user_two@gmail.com"
+
+    // memanggil fungsi dengan 2 argumen (urutan sesuai parameter)
+    println(displayAlertMessage(secondUserOperatingSystem, secondUserEmailId))
+    println()
+
+    val thirdUserOperatingSystem = "Mac OS"
+    val thirdUserEmailId = "user_three@gmail.com"
+
+    // memanggil fungsi dengan 2 argumen lagi
+    println(displayAlertMessage(thirdUserOperatingSystem, thirdUserEmailId))
+    println()
+}
+
+// fungsi dengan parameter default
+// operatingSystem punya nilai default "Unknown OS"
+fun displayAlertMessage(operatingSystem: String = "Unknown OS", emailId: String): String {
+    return "There is a new sign-in request on $operatingSystem for your Google Account $emailId."
+}
+```
+```teks
+There is a new sign-in request on Unknown OS for your Google Account user_one@gmail.com.
+
+There is a new sign-in request on Windows for your Google Account user_two@gmail.com.
+
+There is a new sign-in request on Mac OS for your Google Account user_three@gmail.com.
+```
+
+- **Pedometer**
+
+```bash
+fun main() {
+    // penamaan variabel menggunakan standar kotlin
+    // yang awalnya Steps (huruf besar di awal) saya ganti dengan steps
+    val steps = 4000
+    val caloriesBurned = pedometerStepsToCalories(steps)
+    println("Walking $steps steps burns $caloriesBurned calories") 
+}
+
+// nam fungsinya juga saya ganti yang awalnya PEDOMETERstepsTOcalories menjadi pedometerStepsToCalories
+// agar lebih rapi, mudah dibaca, dan mengikuti standar kotlin
+fun pedometerStepsToCalories(numberOfSteps: Int): Double {
+    val caloriesBurnedForEachStep = 0.04
+    val totalCaloriesBurned = numberOfSteps * caloriesBurnedForEachStep
+    return totalCaloriesBurned
+}
+```
+```teks
+Walking 4000 steps burns 160.0 calories
+```
+
+- **Membandingkan dua angka**
+
+```bash
+fun main() {
+    // memanggil fungsi compareTime dengan berbagai nilai
+    println("Have I spent more time using my phone today: ${compareTime(300, 250)}")
+    // 300 > 250 → hasilnya true
+
+    println("Have I spent more time using my phone today: ${compareTime(300, 300)}")
+    // 300 = 300 → hasilnya false (karena tidak lebih besar)
+
+    println("Have I spent more time using my phone today: ${compareTime(200, 220)}")
+    // 200 < 220 → hasilnya false
+}
+
+// fungsi untuk membandingkan waktu penggunaan hari ini dan kemarin
+fun compareTime(timeSpentToday: Int, timeSpentYesterday: Int): Boolean {
+    return timeSpentToday > timeSpentYesterday 
+    // mengembalikan true jika hari ini lebih lama, selain itu false
+}
+```
+```teks
+Have I spent more time using my phone today: true
+Have I spent more time using my phone today: false
+Have I spent more time using my phone today: false
+```
+
+- **Memindahkan kode duplikat ke fungsi**
+
+```bash
+/* untuk kode ini contoh jika menulisnya tanpa fungsi jadi kurang efisien dan resiko error
+fun main() {
+    println("City: Ankara")
+    println("Low temperature: 27, High temperature: 31")
+    println("Chance of rain: 82%")
+    println()
+
+    println("City: Tokyo")
+    println("Low temperature: 32, High temperature: 36")
+    println("Chance of rain: 10%")
+    println()
+    
+    println("City: Cape Town")
+    println("Low temperature: 59, High temperature: 64")
+    println("Chance of rain: 2%")
+    println()
+    
+    println("City: Guatemala City")
+    println("Low temperature: 50, High temperature: 55")
+    println("Chance of rain: 7%")
+    println()
+}*/
+
+// agar tidka mengulang kode disini saya cukup memanggil fungsi untuk setiap kota 
+fun main() {
+    printWeatherForCity("Ankara", 27, 31, 82)
+    printWeatherForCity("Tokyo", 32, 36, 10)
+    printWeatherForCity("Cape Town", 59, 64, 2)
+    printWeatherForCity("Guatemala City", 50, 55, 7)
+}
+
+// ini fungsi untuk menampilkan data cuacanya
+fun printWeatherForCity(cityName: String, lowTemp: Int, highTemp: Int, chanceOfRain: Int) {
+    println("City: $cityName") // menampilkan nama kota
+    println("Low temperature: $lowTemp, High temperature: $highTemp") // suhu
+    println("Chance of rain: $chanceOfRain%") // peluang hujan
+    println() // baris kosong sebagai pemisah
+}
+```
+```teks
+City: Ankara
+Low temperature: 27, High temperature: 31
+Chance of rain: 82%
+
+City: Tokyo
+Low temperature: 32, High temperature: 36
+Chance of rain: 10%
+
+City: Cape Town
+Low temperature: 59, High temperature: 64
+Chance of rain: 2%
+
+City: Guatemala City
+Low temperature: 50, High temperature: 55
+Chance of rain: 7%
 ```
