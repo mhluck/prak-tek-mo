@@ -270,3 +270,103 @@ fun main() {
 15 photos left
 ```
 
+- **Memperbarui variabel**
+
+```bash
+/*fun main() {
+    val cartTotal = 0 // 'val' cannot be reassigned.
+    cartTotal = 20
+    println("Total: $cartTotal")
+}*/
+
+// val tidak bisa diperbarui/diubah nilainya, makanya disini menggunakan var untuk memperbarui nilai variabel
+fun main() {
+    var cartTotal = 0 // nilai awal variabel
+    println("Total: $cartTotal")
+
+    cartTotal = 20 // nilai baru variabel
+    println("Total: $cartTotal")
+}
+```
+```teks
+Total: 0
+Total: 20
+```
+
+- **Operator penambahan dan pengurangan**
+- penambahan
+```bash
+/*
+fun main() {
+    val count: Int = 10 // val tidak bisa diubah nilainya
+    println("You have $count unread messages.")
+}
+
+// disini dirubah menggunakan var karena akan dilakukan penambahan
+fun main() {
+    var count = 10 // nilai awal
+    println("You have $count unread messages.")
+    count = count + 1 // nilai awal ditambah 1
+    println("You have $count unread messages.")
+}*/
+
+fun main() {
+    var count = 10
+    println("You have $count unread messages.")
+    count++ // fungsinya sama saja dengan ditambah 1
+    println("You have $count unread messages.")
+}
+```
+```teks
+You have 10 unread messages.
+You have 11 unread messages.
+```
+
+- pengurangan
+```bash
+fun main() {
+    var count = 10
+    println("You have $count unread messages.")
+    count-- // kalau ini fungsinya dikurangi 1
+    println("You have $count unread messages.")
+}
+```
+```teks
+You have 10 unread messages.
+You have 9 unread messages.
+```
+
+- **Mempelajari jenis data lainnya**
+- Ganda
+
+```bash
+/*
+fun main() {
+    val trip1: Double = 3.20 //trip1 memiliki nilai tetap 3.20
+    val trip2: Double = 4.10 //trip2 memiliki nilai tetap 4.10
+    val trip3: Double = 1.72 //trip3 memiliki nilai tetap 1.72
+    val totalTripLength: Double = 0.0 // //totalTripLength memiliki nilai tetap 0.0
+    println("$totalTripLength miles left to destination") // disini yang dicetak hanya variabel totalTripLength 
+}
+
+fun main() {
+    val trip1: Double = 3.20
+    val trip2: Double = 4.10
+    val trip3: Double = 1.72
+    val totalTripLength: Double = trip1 + trip2 + trip3 // disini variabel totalTripLength nilainya dirubah dengan menjumlah semua trip 
+    println("$totalTripLength miles left to destination")
+}
+*/
+
+// menghapus jenis data Double yang tidak perlu, dan kode menjadi lebih sederhana
+fun main() {
+    val trip1 = 3.20
+    val trip2 = 4.10
+    val trip3 = 1.72
+    val totalTripLength = trip1 + trip2 + trip3
+    println("$totalTripLength miles left to destination")
+}
+```
+```teks
+9.02 miles left to destination
+```
