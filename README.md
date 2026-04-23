@@ -24,10 +24,9 @@ Repository ini memiliki struktur direktori berdasarkan minggu pelaksanaan prakti
 
 ```text
 prak-tek-mo
-├── Dasar Pemrograman dengan Kotlin
-├── Tata Letak Dasar
-├── Berinteraksi dengan UI
-├── Scrollable List
+├── 1. Dasar Pemrograman dengan Kotlin
+├── 2. Tata Letak Dasar
+├── 3. Berinteraksi dengan UI
 ├── dst.
 ```
 
